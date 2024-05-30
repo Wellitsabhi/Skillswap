@@ -6,7 +6,8 @@ const userRouter = require('./routes/userRouter')
 const homeRouter = require('./routes/homeRouter')
 const adminRouter = require('./routes/adminRouter')
 const swipeRouter = require('./routes/swipeRouter')
-const utilRouter = require('./routes/utilRouter')
+const passwordResetRouter = require('./routes/passwordResetRouter')
+// const utilRouter = require('./routes/utilRouter')
 const cookieParser = require('cookie-parser')
 const PORT = process.env.PORT
 const cors = require('cors')
@@ -33,12 +34,14 @@ app.listen(PORT, ()=> {
     console.log("server is running on ", PORT)
 })
 
+// app.use('/', utilRouter)
+
 app.use('/user', userRouter)
 
 app.use('/home', homeRouter)
 
 app.use('/swipe', swipeRouter) 
 
-app.use('/', utilRouter)
+app.use('/password-reset', passwordResetRouter)
 
 app.use('/admin', adminRouter)  // For testing purposes  // can make a admin dashboard in future
